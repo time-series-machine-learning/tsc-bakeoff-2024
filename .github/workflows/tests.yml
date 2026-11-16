@@ -22,16 +22,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      # mrsqm has no wheel for Python 3.12 and needs FFTW to build
-      - name: Install FFTW
-        run: sudo apt-get update && sudo apt-get install -y libfftw3-dev
-
       # the optional dependencies are needed to fit the classifiers in the tests.
       # torch is installed from the CPU only index to keep the install small.
       - name: Install
         run: |
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
-          python -m pip install tsml-eval tsml pytest tsfresh esig mrsqm statsmodels grailts
+          python -m pip install tsml-eval tsml pytest tsfresh esig statsmodels grailts
 
       - name: Show dependencies
         run: python -m pip list

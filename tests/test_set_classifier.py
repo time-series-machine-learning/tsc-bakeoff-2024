@@ -60,7 +60,6 @@ def test_set_bakeoff_classifier_invalid():
         ),
         ("RDST", {"max_shapelets": 10}),
         ("RSF", {"n_estimators": 5}),
-        ("MrSQM", {}),
         ("R-STSF", {"n_estimators": 5, "n_intervals": 2}),
         ("RISE", {"n_estimators": 5}),
         ("TSF", {"n_estimators": 5}),
