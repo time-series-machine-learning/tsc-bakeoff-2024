@@ -14,13 +14,14 @@ os.environ["TF_NUM_INTRAOP_THREADS"] = "1"
 from aeon.base._base import _clone_estimator
 
 from tsml_eval.experiments import load_and_run_classification_experiment
-from tsml_eval.publications.y2023.tsc_bakeoff.set_bakeoff_classifier import (
-    _set_bakeoff_classifier,
-)
-from tsml_eval.publications.y2023.tsc_bakeoff.tests import _BAKEOFF_TEST_RESULTS_PATH
 from tsml_eval.testing.testing_utils import _TEST_DATA_PATH
 from tsml_eval.utils.arguments import parse_args
 from tsml_eval.utils.experiments import _results_present
+
+from set_bakeoff_classifier import _set_bakeoff_classifier
+
+_REPO_PATH = os.path.dirname(os.path.abspath(__file__))
+_BAKEOFF_TEST_RESULTS_PATH = f"{_REPO_PATH}/test_output/"
 
 # all classifiers ran without duplicates
 distance_based = ["1NN-DTW", "GRAIL"]
@@ -110,7 +111,7 @@ if __name__ == "__main__":
     """
     Example simple usage, with arguments input via script or hard coded for testing.
 
-    1. Edit the arguments from line 49-56 to suit your experiment, The most important
+    1. Edit the arguments from line 56-63 to suit your experiment, The most important
        are:
          data_path: the path to the data
          results_path: the path to the results
